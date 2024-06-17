@@ -11,16 +11,16 @@ const emailRoutes = require("./routes/emailRoutes");
 const authMiddleware = require("./middleware/Authmiddleware.js");
 const cors = require("cors");
 dotenv.config();
-
 // const insertP = require('./scripts/insertPrincipal.js')
+
 const app = express();
 const port = process.env.PORT;
 
 const corsOptions = {
-  origin: "http://localhost:5173", // The origin of your frontend
-  credentials: true, // Allow credentials (cookies)
-  methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
-  allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+  origin: process.env.FRONTEND_URL || "http://localhost:5173",
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
 
 
@@ -38,6 +38,6 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+app.listen(process.env.BASE_URL, () => {
+  console.log(`Server running at ${process.env.BASE_URL}`);
 });
