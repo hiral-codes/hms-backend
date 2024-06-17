@@ -11,7 +11,7 @@ const emailRoutes = require("./routes/emailRoutes");
 const authMiddleware = require("./middleware/Authmiddleware.js");
 const cors = require("cors");
 dotenv.config();
-const insertP = require('./scripts/insertPrincipal.js')
+// const insertP = require('./scripts/insertPrincipal.js')
 
 const app = express();
 const port = process.env.PORT;
