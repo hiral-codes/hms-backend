@@ -38,6 +38,6 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 
-app.listen(process.env.BASE_URL, () => {
-  console.log(`Server running at ${process.env.BASE_URL}`);
+app.listen(port, () => {
+  console.log(`Server running at ${process.env.BASE_URL}:${port}`);
 });
