@@ -23,7 +23,9 @@ const corsOptions = {
   allowedHeaders: ["Content-Type", "Authorization"],
 };
 
-
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
 app.use("/api/auth", authRoutes);
